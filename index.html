@@ -1,0 +1,1191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+
+  <title>Study Battle</title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.2.0/remixicon.min.css"
+  >
+
+  <link
+    rel="stylesheet"
+    href="style-v2.css?v=140007"
+  >
+
+</head>
+
+<body>
+
+  <section id="authPage" class="page active">
+
+    <div class="authWrapper">
+
+      <div class="authOrbs">
+        <div class="authOrb authOrb1"></div>
+        <div class="authOrb authOrb2"></div>
+        <div class="authOrb authOrb3"></div>
+        <div class="authOrb authOrb4"></div>
+      </div>
+
+      <div class="logoArea">
+
+        <div class="logoCircle">
+          <i class="ri-sword-line"></i>
+        </div>
+
+        <h1>Study Battle</h1>
+
+        <p>
+          Build your kingdom through real-life focus.
+        </p>
+
+      </div>
+
+      <div class="glassCard authCard">
+
+        <h2 id="authTitle">
+          Welcome Back
+        </h2>
+
+        <input
+          id="usernameInput"
+          class="hidden"
+          placeholder="Username"
+        >
+
+        <input
+          id="emailInput"
+          type="email"
+          placeholder="Email"
+        >
+
+        <input
+          id="passwordInput"
+          type="password"
+          placeholder="Password"
+        >
+
+        <button
+          id="authBtn"
+          class="primaryBtn"
+        >
+          Continue
+        </button>
+
+        <button
+          id="switchAuth"
+          class="textBtn"
+        >
+          Create account
+        </button>
+
+        <p id="authMsg"></p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <section id="mainApp" class="page">
+
+    <div class="menuDrawer" id="menuDrawer">
+      <div class="menuOverlay" onclick="toggleMenu()"></div>
+      <div class="menuPanel">
+        <button class="menuClose" onclick="toggleMenu()"><i class="ri-close-line"></i></button>
+        <nav class="lineMenu">
+          <div class="lineMenuItem" onclick="showFriendsScreen()">
+            <span class="lineMenuMarker"></span>
+            <span class="lineMenuIndex">01</span>
+            <span class="lineMenuText">Friends</span>
+          </div>
+          <div class="lineMenuItem" onclick="showToast('Notifications coming soon')">
+            <span class="lineMenuMarker"></span>
+            <span class="lineMenuIndex">02</span>
+            <span class="lineMenuText">Notifications</span>
+            <span class="lineMenuSoon">Soon</span>
+          </div>
+          <div class="lineMenuItem" onclick="showToast('Messages coming soon')">
+            <span class="lineMenuMarker"></span>
+            <span class="lineMenuIndex">03</span>
+            <span class="lineMenuText">Messages</span>
+            <span class="lineMenuSoon">Soon</span>
+          </div>
+          <div class="lineMenuItem" onclick="showToast('Settings coming soon')">
+            <span class="lineMenuMarker"></span>
+            <span class="lineMenuIndex">04</span>
+            <span class="lineMenuText">Settings</span>
+            <span class="lineMenuSoon">Soon</span>
+          </div>
+          <div class="lineMenuItem" onclick="showAnalysisScreen()">
+            <span class="lineMenuMarker"></span>
+            <span class="lineMenuIndex">05</span>
+            <span class="lineMenuText">Analysis</span>
+          </div>
+          <div class="lineMenuItem" id="sfxMenuToggle" onclick="toggleSFXFromMenu(this)">
+            <span class="lineMenuMarker"></span>
+            <span class="lineMenuIndex">06</span>
+            <span class="lineMenuText">Sound FX</span>
+            <span class="sfxMenuBadge sfxOn" id="sfxMenuBadge">ON</span>
+          </div>
+        </nav>
+      </div>
+    </div>
+
+    <section id="homeScreen">
+
+      <div class="topBar">
+
+        <div>
+          <h2 id="homeUsername">Warrior</h2>
+
+          <p class="smallText">
+            Level <span id="homeLevel">1</span>
+          </p>
+        </div>
+
+        <div class="coinCard">
+          <i class="ri-coins-line"></i>
+          <span id="homeCoins">0</span>
+        </div>
+
+        <button class="hamburgerBtn" onclick="toggleMenu()" aria-label="Menu">
+          <i class="ri-menu-3-line"></i>
+        </button>
+
+      </div>
+
+      <div class="glassCard kingdomCard">
+
+        <div class="castleArea">
+
+          <div class="castleGlow"></div>
+
+          <i class="ri-building-4-line castleIcon"></i>
+
+        </div>
+
+        <div class="kingdomInfo">
+
+          <h3>Kingdom Status</h3>
+
+          <p>
+            Your discipline shapes your world.
+          </p>
+
+        </div>
+
+        <div class="progressSection">
+
+          <div class="progressTop">
+
+            <span>Castle Integrity</span>
+
+            <span id="castleHealthText">100%</span>
+
+          </div>
+
+          <div class="progressBar">
+
+            <div
+              class="progressFill"
+              id="castleProgress"
+            ></div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <button
+        class="focusBtn"
+        onclick="openTimer()"
+      >
+        <i class="ri-play-large-line"></i>
+        Start Focus Session
+      </button>
+
+      <div class="statsGrid">
+
+        <div class="glassCard statCard">
+
+          <div class="statIcon">
+            <i class="ri-book-open-line"></i>
+          </div>
+
+          <h4>Study</h4>
+
+          <p id="homeTotal">0 min</p>
+
+        </div>
+
+        <div class="glassCard statCard">
+
+          <div class="statIcon">
+            <i class="ri-plant-line"></i>
+          </div>
+
+          <h4>Forest</h4>
+
+          <p id="forestCount">0 Trees</p>
+
+        </div>
+
+        <div class="glassCard statCard">
+
+          <div class="statIcon">
+            <i class="ri-shield-line"></i>
+          </div>
+
+          <h4>Army</h4>
+
+          <p id="armyPower">0 Power</p>
+
+        </div>
+
+        <div class="glassCard statCard">
+
+          <div class="statIcon">
+            <i class="ri-fire-line"></i>
+          </div>
+
+          <h4>Streak</h4>
+
+          <p id="streakText">0 Days</p>
+
+        </div>
+
+      </div>
+
+    </section>
+
+    <section
+      id="battleScreen"
+      class="appScreen hiddenPage"
+    >
+
+      <div class="screenHeader">
+
+        <div class="screenHeaderRow">
+          <div>
+            <h2>Battle Arena</h2>
+            <p>Attack and defend kingdoms through real-life focus.</p>
+          </div>
+          <button class="archiveHeroBtn" onclick="showWarArchives()" title="War Archives">
+            <i class="ri-archive-line"></i>
+          </button>
+        </div>
+
+      </div>
+
+      <div class="glassCard battleHero">
+
+        <div class="battleTop">
+
+          <div>
+            <h3>Kingdom</h3>
+          </div>
+
+          <div class="battleBadge">
+            LIVE
+          </div>
+
+        </div>
+
+        <div class="battleStats">
+
+          <div>
+            <span>Army Power</span>
+
+            <h2 id="battleArmyText">0</h2>
+          </div>
+
+          <div>
+            <span>Castle Defense</span>
+
+            <h2 id="battleCastleText">100</h2>
+          </div>
+
+        </div>
+
+      </div>
+
+      <div class="battleAccordionWrap">
+
+        <div class="accordionCard" id="createAccordion">
+          <button class="accordionHead" onclick="toggleAccordion('createAccordion')">
+            <div>
+              <h3>Create War Room</h3>
+              <p>Challenge a rival kingdom</p>
+            </div>
+            <i class="ri-arrow-down-s-line accordionArrow"></i>
+          </button>
+          <div class="accordionBody">
+            <input id="battleTargetHours" type="number" placeholder="Target study hours">
+            <input id="battlePassword" type="text" placeholder="Optional room password">
+            <button class="focusBtn" onclick="createBattleRoom()">Create Battle</button>
+          </div>
+        </div>
+
+        <div class="accordionCard" id="joinAccordion">
+          <button class="accordionHead" onclick="toggleAccordion('joinAccordion')">
+            <div>
+              <h3>Join War Room</h3>
+              <p>Enter existing battle</p>
+            </div>
+            <i class="ri-arrow-down-s-line accordionArrow"></i>
+          </button>
+          <div class="accordionBody">
+            <input id="joinRoomId" type="text" placeholder="Room ID">
+            <input id="joinRoomPassword" type="text" placeholder="Room password">
+            <button class="primaryBtn" onclick="joinBattleRoom()">Join Battle</button>
+          </div>
+        </div>
+
+      </div>
+
+      <div
+        class="glassCard activeRoomCard hiddenPage"
+        id="activeRoomCard"
+      >
+
+        <div class="roomLiveTop">
+
+          <div>
+            <h3 id="activeRoomTitle">
+              Kingdom War
+            </h3>
+
+            <p id="activeRoomCode">
+              WAR ROOM
+            </p>
+          </div>
+
+          <div class="liveDot"></div>
+
+        </div>
+
+        <div class="warTimerBox">
+
+          <span>Target Timer</span>
+
+          <h2 id="activeRoomTimer">
+            Waiting
+          </h2>
+
+          <p id="activeRoomTarget">
+            Target: 0h
+          </p>
+
+        </div>
+
+        <div class="liveBattleStats">
+
+          <div class="livePlayer">
+
+            <span>Attacker</span>
+
+            <h2 id="attackerProgress">
+              0h
+            </h2>
+
+            <p id="attackerStatus">
+              Waiting
+            </p>
+
+          </div>
+
+          <div class="livePlayer">
+
+            <span>Defender</span>
+
+            <h2 id="defenderProgress">
+              0h
+            </h2>
+
+            <p id="defenderStatus">
+              Waiting
+            </p>
+
+          </div>
+
+        </div>
+
+        <button
+          class="primaryBtn hiddenPage"
+          id="confirmStudyBtn"
+          onclick="confirmStudyDone()"
+        >
+          Confirm Study Completed
+        </button>
+
+        <button
+          class="dangerBtn"
+          onclick="leaveBattleRoom()"
+        >
+          Leave Battle
+        </button>
+
+        <div
+          class="scoreCard hiddenPage"
+          id="scoreCardBox"
+        >
+
+          <h3>Kingdom War Report</h3>
+
+          <p id="scoreCardText"></p>
+
+        </div>
+
+      </div>
+
+      <div class="accordionCard kingdomStoreAccordion" id="storeAccordion">
+        <button class="accordionHead" onclick="toggleAccordion('storeAccordion')">
+          <div>
+            <h3>Kingdom Store</h3>
+            <p>Spend coins to strengthen your empire</p>
+          </div>
+          <i class="ri-arrow-down-s-line accordionArrow"></i>
+        </button>
+        <div class="accordionBody">
+          <div class="upgradeGrid">
+            <div class="upgradeItem">
+              <div>
+                <h4>Army Upgrade</h4>
+                <p>+10 Army Power</p>
+              </div>
+              <button class="primaryBtn" id="armyUpgradeBtn" onclick="upgradeArmy()">Upgrade</button>
+            </div>
+            <div class="upgradeItem">
+              <div>
+                <h4>Castle Defense</h4>
+                <p>+5 Defense</p>
+              </div>
+              <button class="primaryBtn" id="defenseUpgradeBtn" onclick="upgradeDefense()">Upgrade</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <section
+  id="forestScreen"
+  class="appScreen hiddenPage"
+>
+
+  <div class="forestHUD">
+
+    <div>
+      <span>FOREST WORLD</span>
+      <h2>Your Focus Realm</h2>
+    </div>
+
+    <div class="forestStatsMini">
+
+      <div>
+        <small>Trees</small>
+        <h3 id="forestTreeCount">0</h3>
+      </div>
+
+      <div>
+        <small>Dead</small>
+        <h3 id="deadTreeCount">0</h3>
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="forestWorld forestCover">
+
+  <div class="forestCoverOverlay">
+
+    <div class="comingSoonBadge">COMING SOON</div>
+
+    <h3>Pixel Focus Forest</h3>
+
+    <p>
+      Explore your realm, plant focus trees, and build a world from discipline.
+    </p>
+
+    <button class="focusBtn comingSoonBtn" onclick="openPixelForest()">
+      Coming Soon
+    </button>
+
+  </div>
+
+</div>
+
+</section>
+<section
+  id="archivesScreen"
+  class="appScreen hiddenPage"
+>
+
+  <div class="screenHeader">
+
+    <div class="screenHeaderRow">
+      <button class="headerBackBtn" onclick="showBattleScreen()">
+        <i class="ri-arrow-left-line"></i>
+      </button>
+      <div>
+        <h2>War Archives</h2>
+        <p>Legendary battle history.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <div
+    id="archivesList"
+    class="archivesList"
+  >
+
+    <div class="glassCard archiveEmpty">
+
+      <i class="ri-scroll-to-bottom-line"></i>
+
+      <h3>
+        No Wars Recorded
+      </h3>
+
+      <p>
+        Complete battles to build history.
+      </p>
+
+    </div>
+
+  </div>
+
+</section>
+    <section
+      id="profileScreen"
+      class="appScreen hiddenPage"
+    >
+
+      <div class="screenHeader">
+
+        <h2>Profile</h2>
+
+        <p>
+          Your warrior statistics.
+        </p>
+
+      </div>
+
+      <div class="glassCard profileCard">
+
+        <div class="profileTop">
+
+          <div class="profileAvatar">
+            A
+          </div>
+
+          <div>
+            <h2 id="profileUsername">
+              Warrior
+            </h2>
+
+            <p id="profileSubtitle">
+              Novice Warrior
+            </p>
+          </div>
+
+        </div>
+        <div class="xpSection">
+
+  <div class="xpTop">
+
+    <span>
+      XP Progress
+    </span>
+
+    <span id="xpProgressText">
+      0 / 100 XP
+    </span>
+
+  </div>
+
+  <div class="xpBar">
+
+    <div
+      class="xpFill"
+      id="xpFill"
+    ></div>
+
+  </div>
+
+</div>
+
+        <div class="profileStats">
+
+          <div class="profileItem">
+
+            <span>Total Study</span>
+
+            <h3 id="profileStudy">0 min</h3>
+
+          </div>
+
+          <div class="profileItem">
+
+            <span>Coins</span>
+
+            <h3 id="profileCoins">0</h3>
+
+          </div>
+
+          <div class="profileItem">
+
+            <span>Army</span>
+
+            <h3 id="profileArmy">0</h3>
+
+          </div>
+
+          <div class="profileItem">
+
+            <span>Level</span>
+
+            <h3 id="profileLevel">1</h3>
+
+          </div>
+
+          <div class="profileItem">
+
+            <span>Total XP</span>
+
+            <h3 id="profileXP">0</h3>
+
+          </div>
+
+        </div>
+
+      </div>
+<div class="glassCard achievementsCard friendsLinkCard" onclick="showFriendsScreen()">
+  <div class="achievementsHeader">
+    <div>
+      <h3>Friends</h3>
+      <p>Manage friends and battle invites.</p>
+    </div>
+    <i class="ri-group-line"></i>
+  </div>
+</div>
+
+<div class="glassCard achievementsCard">
+  <div class="achievementsHeader">
+    <div>
+      <h3>Achievements</h3>
+      <p>Unlock rewards through focus.</p>
+    </div>
+    <i class="ri-trophy-line"></i>
+  </div>
+  <div class="achievementsPlaceholder">
+    <i class="ri-lock-unlock-line"></i>
+    <p>Achievement system coming soon</p>
+  </div>
+</div>
+
+<button class="dangerBtn logoutBtn" onclick="logout()">
+  <i class="ri-logout-box-r-line"></i>
+  Logout
+</button>
+    </section>
+
+    <section
+      id="analysisScreen"
+      class="appScreen hiddenPage"
+    >
+
+      <div class="screenHeader">
+        <h2>Analysis</h2>
+        <p>Subject-wise hours from your solo focus sessions.</p>
+      </div>
+
+      <div class="analysisSummaryRow">
+
+        <div class="glassCard analysisSummaryCard">
+          <span>Total Focus Time</span>
+          <h2 id="analysisTotalTime">0 min</h2>
+        </div>
+
+        <div class="glassCard analysisSummaryCard">
+          <span>Subjects Tracked</span>
+          <h2 id="analysisSubjectCount">0</h2>
+        </div>
+
+      </div>
+
+      <div class="glassCard analysisCard">
+
+        <div class="analysisCardHeader">
+          <h3>Time by Subject</h3>
+          <p>Automatically logged whenever you finish a solo session.</p>
+        </div>
+
+        <div class="analysisEmptyState" id="analysisEmptyState">
+          <i class="ri-bar-chart-2-line"></i>
+          <p>No solo sessions yet</p>
+          <small>Add a subject before starting a Focus Session to see it here.</small>
+        </div>
+
+        <div class="analysisSubjectList" id="analysisSubjectList"></div>
+
+      </div>
+
+    </section>
+
+    <section
+      id="friendsScreen"
+      class="appScreen hiddenPage"
+    >
+
+      <div class="screenHeader">
+        <div class="screenHeaderRow">
+          <button class="headerBackBtn" onclick="showHomeScreen()">
+            <i class="ri-arrow-left-line"></i>
+          </button>
+          <div>
+            <h2>Friends</h2>
+            <p>Add friends, see who's online, and start battles together.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="glassCard analysisCard">
+        <div class="analysisCardHeader">
+          <h3>Add a Friend</h3>
+          <p>Search by their exact username.</p>
+        </div>
+        <div class="friendAddRow">
+          <input
+            id="friendUsernameInput"
+            type="text"
+            placeholder="Enter username"
+          >
+          <button class="primaryBtn friendAddBtn" onclick="sendFriendRequest()">
+            Send
+          </button>
+        </div>
+        <p id="friendMsg" class="friendMsg"></p>
+      </div>
+
+      <div class="glassCard analysisCard">
+        <div class="analysisCardHeader">
+          <h3>Friend Requests</h3>
+          <p>People who want to join your kingdom circle.</p>
+        </div>
+        <div id="friendRequestsList"></div>
+      </div>
+
+      <div class="glassCard analysisCard">
+        <div class="analysisCardHeader">
+          <h3>Battle Invites</h3>
+          <p>Accept to start a timed study battle instantly.</p>
+        </div>
+        <div id="battleInvitesList"></div>
+      </div>
+
+      <div class="glassCard analysisCard">
+        <div class="analysisCardHeader">
+          <h3>Your Friends</h3>
+          <p>Tap Invite to challenge them to a battle.</p>
+        </div>
+        <div id="friendsList"></div>
+      </div>
+
+    </section>
+
+    <section id="timerPage" class="hiddenPage">
+
+  <div class="timerSheet">
+
+    <div class="timerTop">
+      <button class="backBtn" id="timerBackBtn" onclick="closeTimer()">
+        <i class="ri-arrow-left-line"></i>
+      </button>
+      <h2 class="timerTitle" id="timerTitle">Focus Session</h2>
+    </div>
+
+    <div class="timerCircle">
+      <div class="timerInner">
+        <div id="timerDisplay">15:00</div>
+        <p id="timerSubLabel">Stay focused</p>
+      </div>
+    </div>
+
+    <div class="timeGrid" id="timeGrid">
+      <button onclick="selectMinutes(15)" id="timeBtn15">15m</button>
+      <button onclick="selectMinutes(30)" id="timeBtn30">30m</button>
+      <button onclick="selectMinutes(60)" id="timeBtn60">60m</button>
+    </div>
+
+    <div class="customInputWrap" id="customInputWrap">
+      <input
+        id="customMinutes"
+        type="number"
+        placeholder="Enter minutes (e.g. 45)"
+      >
+    </div>
+
+    <button class="customToggleBtn" id="customToggleBtn" onclick="toggleCustomInput()">
+      <i class="ri-edit-line" id="customToggleIcon"></i>
+      <span id="customToggleLabel">Use Custom</span>
+    </button>
+
+    <div class="sessionPreview" id="sessionPreview">
+      <div class="previewItem">
+        <i class="ri-flashlight-line"></i>
+        <span>XP Reward</span>
+        <b id="previewXP">15 XP</b>
+      </div>
+      <div class="previewItem">
+        <i class="ri-coins-line"></i>
+        <span>Coins</span>
+        <b id="previewCoins">22</b>
+      </div>
+      <div class="previewItem">
+        <i class="ri-plant-line"></i>
+        <span>Tree Reward</span>
+        <b id="previewTree">Seed</b>
+      </div>
+      <div class="previewItem">
+        <i class="ri-fire-line"></i>
+        <span>Streak Bonus</span>
+        <b id="previewStreak">+0%</b>
+      </div>
+    </div>
+
+    <div class="subjectWrap" id="subjectWrap">
+      <label class="subjectLabel">What are you studying?</label>
+      <input
+        id="subjectInput"
+        type="text"
+        placeholder="e.g. Math, Physics, History…"
+        maxlength="40"
+      >
+    </div>
+
+    <div class="motivationLine" id="motivationLine">
+      Small focus creates giant kingdoms ⚔️
+    </div>
+    <div class="failureWarning" id="failureWarning">
+      Leaving early creates a dead tree
+    </div>
+
+    <button
+      class="focusBtn"
+      id="startTimerBtn"
+      onclick="startTimer()"
+    >
+      <i class="ri-play-circle-line"></i>
+      Start Session
+    </button>
+
+    <button
+      class="dangerBtn hiddenPage"
+      id="quitSoloBtn"
+      onclick="quitSoloSession()"
+    >
+      <i class="ri-flag-line"></i>
+      Give Up Session
+    </button>
+
+  </div>
+
+</section>
+    <!-- PREMIUM INVITE MODAL -->
+<div id="friendProfileModal" class="inviteModal hiddenPage">
+
+  <div class="inviteBox">
+
+    <div class="inviteTop">
+      <div>
+        <span>FRIEND KINGDOM</span>
+        <h3 id="friendProfileName">Friend</h3>
+      </div>
+
+      <button onclick="closeFriendProfile()">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+
+    <div class="profileStats">
+
+      <div class="profileItem">
+        <span>Level</span>
+        <h3 id="friendProfileLevel">1</h3>
+      </div>
+
+      <div class="profileItem">
+        <span>Study</span>
+        <h3 id="friendProfileStudy">0m</h3>
+      </div>
+
+      <div class="profileItem">
+        <span>Castle</span>
+        <h3 id="friendProfileCastle">100%</h3>
+      </div>
+
+      <div class="profileItem">
+        <span>Army</span>
+        <h3 id="friendProfileArmy">0</h3>
+      </div>
+
+    </div>
+
+    <button class="primaryBtn" id="friendProfileInviteBtn">
+      Invite to Battle
+    </button>
+
+  </div>
+
+</div>
+<div id="inviteModal" class="inviteModal hiddenPage">
+
+  <div class="inviteBox">
+
+    <div class="inviteTop">
+
+      <div>
+        <span>BATTLE INVITE</span>
+        <h3 id="inviteFriendName">Friend</h3>
+      </div>
+
+      <button onclick="closeInviteModal()">
+        <i class="ri-close-line"></i>
+      </button>
+
+    </div>
+
+    <input
+      id="inviteTargetHours"
+      type="number"
+      placeholder="Target study hours"
+    >
+
+    <button
+      class="primaryBtn"
+      onclick="sendBattleInviteFromModal()"
+    >
+      Send Invite
+    </button>
+    <div id="inviteStatus" class="inviteStatus"></div>
+
+  </div>
+
+</div>
+<div id="rewardModal" class="rewardModal hiddenPage">
+
+  <div class="rewardCard">
+
+    <div class="rewardTop">
+      <div>
+        <span class="rewardEyebrow">SESSION COMPLETE</span>
+        <h2>Focus Rewards</h2>
+      </div>
+      <div class="rewardIcon">
+        <i class="ri-medal-line"></i>
+      </div>
+    </div>
+
+    <div class="rewardCarousel" id="rewardCarousel">
+      <div class="rewardTrack" id="rewardTrack">
+
+        <div class="rewardSlide">
+          <div class="rewardSlideIcon"><i class="ri-timer-line"></i></div>
+          <span class="rewardSlideLabel">Time Focused</span>
+          <h2 class="rewardSlideValue" id="rewardMinutes">15 min</h2>
+          <p class="rewardSlideNote">Great discipline!</p>
+        </div>
+
+        <div class="rewardSlide">
+          <div class="rewardSlideIcon"><i class="ri-flashlight-line"></i></div>
+          <span class="rewardSlideLabel">XP Earned</span>
+          <h2 class="rewardSlideValue" id="rewardXP">+15</h2>
+          <p class="rewardSlideNote">Kingdom is growing</p>
+        </div>
+
+        <div class="rewardSlide">
+          <div class="rewardSlideIcon"><i class="ri-coins-line"></i></div>
+          <span class="rewardSlideLabel">Coins Earned</span>
+          <h2 class="rewardSlideValue" id="rewardCoins">+22</h2>
+          <p class="rewardSlideNote" id="rewardTree">Seed planted 🌱</p>
+        </div>
+
+        <div class="rewardSlide">
+          <div class="rewardSlideIcon"><i class="ri-fire-line"></i></div>
+          <span class="rewardSlideLabel">Streak Bonus</span>
+          <h2 class="rewardSlideValue" id="rewardStreak">+0%</h2>
+          <p class="rewardSlideNote">Keep the streak alive!</p>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="rewardDots" id="rewardDots">
+      <div class="rdot active"></div>
+      <div class="rdot"></div>
+      <div class="rdot"></div>
+      <div class="rdot"></div>
+    </div>
+
+    <button class="focusBtn" onclick="closeRewardModal()">
+      <i class="ri-check-line"></i>
+      Continue
+    </button>
+
+  </div>
+
+</div>
+
+  </section>
+
+  <div class="bottomNav" id="bottomNav" style="display:none">
+
+    <button class="navBtn activeNav" data-label="Home">
+      <i class="ri-home-5-line"></i>
+      <span class="navLabel">Home</span>
+    </button>
+
+    <button class="navBtn" data-label="Battle">
+      <i class="ri-sword-line"></i>
+      <span class="navLabel">Battle</span>
+    </button>
+
+    <button class="navBtn" data-label="Forest">
+      <i class="ri-plant-line"></i>
+      <span class="navLabel">Forest</span>
+    </button>
+
+    <button class="navBtn" data-label="Profile" id="profileNavBtn">
+      <i class="ri-user-line"></i>
+      <span class="navLabel">Profile</span>
+      <span class="navBadge hidden" id="profileNavBadge"></span>
+    </button>
+
+    <button class="navBtn" data-label="Analysis" id="analysisNavBtn">
+      <i class="ri-bar-chart-2-line"></i>
+      <span class="navLabel">Analysis</span>
+    </button>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-app-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-auth-compat.js"></script>
+
+  <script src="https://www.gstatic.com/firebasejs/10.12.5/firebase-firestore-compat.js"></script>
+
+  <script src="firebase-config.js?v=13000"></script>
+
+  <script src="app.js?v=140005"></script>
+<section id="pixelForestGame" class="pixelForestGame hiddenPage">
+
+<div class="pixelTopBar">
+  <button class="hudBtn" onclick="closePixelForest()">
+    <i class="ri-door-open-line"></i>
+    <span>Exit</span>
+  </button>
+
+  <button class="hudBtn" onclick="openTreeInventory()">
+    <i class="ri-briefcase-line"></i>
+    <span>Inventory</span>
+  </button>
+</div>
+
+  <div class="miniMap">
+    <div id="miniPlayer"></div>
+  </div>
+
+  <div id="pixelViewport" class="pixelViewport">
+
+    <div id="pixelWorld" class="pixelWorld">
+
+      <div class="worldPath"></div>
+
+      <div class="worldWater">
+        <div class="waterShimmer"></div>
+        <div class="waterShimmer s2"></div>
+      </div>
+
+      <div class="worldCliff"></div>
+
+      <div id="decorLayer"></div>
+
+      <div id="pixelTreeLayer"></div>
+
+      <div id="pixelPlayer" class="pixelPlayer"></div>
+
+    </div>
+
+  </div>
+
+  <div id="joyStick" class="joyStick">
+    <div id="joyKnob" class="joyKnob"></div>
+  </div>
+
+  <button class="pixelInteractBtn" onclick="interactPixelWorld()">
+    <i class="ri-focus-3-line"></i>
+  </button>
+
+  <div id="interactPopup" class="interactPopup hidden"></div>
+
+</section>
+
+<div id="inventoryModal" class="inventoryModal hidden">
+  <div class="inventoryBox">
+    <div class="inventoryHeader">
+      <div>
+        <span class="invLabel">FOREST TREES</span>
+        <h3>Your Collection</h3>
+      </div>
+      <button class="invCloseBtn" onclick="closeInventory()">
+        <i class="ri-close-line"></i>
+      </button>
+    </div>
+    <div id="inventoryList" class="inventoryList"></div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="dotfield.js?v=140001"></script>
+<script src="gradual-blur.js?v=140001"></script>
+<script src="dock.js?v=140001"></script>
+<script src="sfx.js?v=140001"></script>
+<script src="animations.js?v=140001"></script>
+</body>
+
+</html>

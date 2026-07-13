@@ -1,0 +1,10 @@
+{
+  "name": "Study Battle",
+  "short_name": "StudyBattle",
+  "start_url": "index.html",
+  "display": "standalone",
+  "background_color": "#06111f",
+  "theme_color": "#d4af37",
+  "orientation": "portrait",
+  "icons": []
+}
