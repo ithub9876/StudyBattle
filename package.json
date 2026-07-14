@@ -1,0 +1,16 @@
+{
+  "name": "studybattle",
+  "version": "1.0.0",
+  "description": "Build your kingdom through real-life focus",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\""
+  },
+  "keywords": ["study", "focus", "productivity"],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.34.3",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
+}
